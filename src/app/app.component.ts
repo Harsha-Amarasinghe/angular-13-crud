@@ -32,7 +32,11 @@ export class AppComponent implements OnInit{
   openDialog() {
     this.dialog.open(DialogComponent, {
       width:'30%'
-    });
+    }).afterClosed().subscribe(val=>{
+      if (val==='save') {
+        this.getAllProducts();
+      }
+    })
   }
 
   getAllProducts(){
@@ -53,6 +57,10 @@ export class AppComponent implements OnInit{
     this.dialog.open(DialogComponent,{
       width:'30%',
       data:data
+    }).afterClosed().subscribe(val=>{
+      if(val=='update'){
+        this.getAllProducts();
+      }
     })
   }
 
