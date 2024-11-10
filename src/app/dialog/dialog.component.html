@@ -1,4 +1,6 @@
-<h1 mat-dialog-title>Add Product Form</h1>
+<h1 mat-dialog-title>
+    {{title}} Product
+</h1>
 
 <div mat-dialog-content>
     <form [formGroup]="productForm">
@@ -41,6 +43,8 @@
 
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProduct()">Save</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProduct()">
+        {{actionBtn}}
+    </button>
 
 </div>
