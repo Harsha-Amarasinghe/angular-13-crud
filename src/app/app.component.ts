@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { ApiService } from './services/api.service';
@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AppComponent implements OnInit{
   title = 'angular-13-crud';
-  displayedColumns: string[] = ['productName', 'category', 'date','freshness','price', 'comment'];
+  displayedColumns: string[] = ['productName', 'category', 'date','freshness','price', 'comment', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
   constructor(
     private dialog: MatDialog,
-    private api: ApiService
+    private api: ApiService,
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +46,13 @@ export class AppComponent implements OnInit{
       error:(err)=>{
         alert("Error while fetching records!")
       }
+    })
+  }
+
+  editProduct(data:any){
+    this.dialog.open(DialogComponent,{
+      width:'30%',
+      data:data
     })
   }
 
