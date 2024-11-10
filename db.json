@@ -17,15 +17,6 @@
       "price": 44344,
       "comment": "fdfd",
       "date": "2024-11-04T18:30:00.000Z"
-    },
-    {
-      "productName": "update test2",
-      "category": "Electronic",
-      "freshness": "Refurbished",
-      "price": 56,
-      "comment": "update",
-      "date": "2024-11-20T18:30:00.000Z",
-      "id": "5b63"
     }
   ],
   "comments": [],

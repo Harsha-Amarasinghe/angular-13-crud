@@ -8,19 +8,19 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  postProduct(data:any){
+  postProductAPI(data:any){
     return this.http.post<any>("http://localhost:3000/productList/",data)
   }
 
-  getProduct(){
+  getProductAPI(){
     return this.http.get<any>("http://localhost:3000/productList/")
   }
 
-  putProduct(data:any,id:number){
+  putProductAPI(data:any,id:number){
     return this.http.put<any>("http://localhost:3000/productList/"+id,data)
   }
 
-  deleteProduct(id:number){
+  deleteProductAPI(id:number){
     return this.http.delete<any>("http://localhost:3000/productList/"+id)
   }
 }

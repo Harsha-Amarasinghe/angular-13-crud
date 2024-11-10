@@ -40,7 +40,7 @@ export class AppComponent implements OnInit{
   }
 
   getAllProducts(){
-    this.api.getProduct()
+    this.api.getProductAPI()
     .subscribe({
       next:(res)=>{
         this.dataSource=new MatTableDataSource(res);
@@ -60,6 +60,18 @@ export class AppComponent implements OnInit{
     }).afterClosed().subscribe(val=>{
       if(val=='update'){
         this.getAllProducts();
+      }
+    })
+  }
+
+  deleteProduct(id:number){
+    this.api.deleteProductAPI(id)
+    .subscribe({
+      next:(res)=>{
+        alert("Product deleted successfully!");
+        this.getAllProducts();
+      }, error:()=>{
+        alert("Error while deleting the product");
       }
     })
   }
